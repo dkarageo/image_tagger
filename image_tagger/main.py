@@ -232,7 +232,7 @@ async def predict(url: AnyHttpUrl = Query(...), top: Optional[int] = Query(None,
     """
     try:
         predictions = predict_imagenet_labels(str(url), top, minconf)
-    except urllib.error.HTTPError:
+    except (urllib.error.HTTPError, urllib.error.URLError):
         return JSONResponse(
             status_code=status.HTTP_404_NOT_FOUND,
             content=jsonable_encoder({
