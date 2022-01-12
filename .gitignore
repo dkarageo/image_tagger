@@ -2,3 +2,7 @@
 image_tagger/__pycache__/
 
 .idea/
+
+image_tagger.egg-info/
+
+dist/
