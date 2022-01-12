@@ -8,6 +8,10 @@ exposing its functionality through a simple endpoint. The API was built using
 _FastAPI_ python framework. It utilizes _Tensorflow_ for executing deep 
 learning models.  
 
+**Currently, there is a running instance of the API on _Google Cloud_ using
+the docker container. It can be accessed through:** https://imagetagger-xuoak2q65a-lm.a.run.app/
+(separate domain name too expensive :stuck_out_tongue:)  
+
 ## Quick Start
 Image Tagger is available at PyPI and can be installed as following:
 
@@ -39,6 +43,22 @@ calling them.
 You will see another version of the documentation. This one is for
 people who prefer the style of _Redoc_ docs, instead of the _Swagger UI_
 based ones.
+
+## Run the docker container
+
+In order to use the API in a production environment, a docker container 
+can be built using the following command:
+
+* `docker build -t imagetagger .`
+
+Then, container can be run by executing the command below:
+
+* `docker run -d -p 8000:8000 -e PORT=8000 imagetagger`
+
+As you may have noticed, in order to run the container, `PORT` 
+environmental variable should be passed to the container. It defines 
+the port the server will listen to and also makes the container 
+ready to be deployed in cloud services like _Google Cloud_. 
 
 ## Endpoints
 
