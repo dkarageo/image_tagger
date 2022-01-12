@@ -15,25 +15,26 @@ Image Tagger is available at PyPI and can be installed as following:
 
 In order to start the server use:
 
-2. `py -m image_tagger [host=0.0.0.0] [port=80]`
+2. `uvicorn image_tagger.main:app --host 0.0.0.0 --port 8000`
 
-Now the server should be up and running. 
+Now the server should be up and running. If port `8000` is occupied
+by something else on your machine, then try a different port.
 
 Get the url of an image you like and perform a GET request to the API like:
 
-3. `GET localhost/predictions?url=https://example.com/path/to/image.png`
+3. `GET localhost:8000/predictions?url=https://example.com/path/to/image.png`
 
 You will see a nice JSON response containing the label for your image. 
 You can perform a GET request either by navigating to the above location
 with your browser, or by using a requests tool like _Postman_.
 
-4. Use your favorite browser and navigate to `localhost/docs`.
+4. Use your favorite browser and navigate to `localhost:8000/docs`.
 
 You will see a nice documentation page for all the endpoints
 exposed by this API, along with the ability for interactively
 calling them. 
 
-5. Navigate to `localhost/redoc`.
+5. Navigate to `localhost:8000/redoc`.
 
 You will see another version of the documentation. This one is for
 people who prefer the style of _Redoc_ docs, instead of the _Swagger UI_
