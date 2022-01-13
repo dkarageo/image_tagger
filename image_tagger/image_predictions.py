@@ -1,6 +1,7 @@
 from typing import Optional
 from urllib import request
 from io import BytesIO
+from pathlib import Path
 
 import numpy as np
 from PIL import Image
@@ -23,7 +24,7 @@ def predict_imagenet_labels(url: str, top: Optional[int],
 
     input_tensor = load_remote_image(url, (300, 300))
 
-    model = EfficientNetB3(weights="imagenet")
+    model = EfficientNetB3(weights=str(Path(__file__).parent / Path("noisystudent_b3.h5")))
     predictions = model.predict(input_tensor)
 
     formatted_results = []
