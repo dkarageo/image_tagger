@@ -3,7 +3,7 @@
 
 ## Description
 Image Tagger is REST API for tagging images with ImageNet-1K labels.
-It wraps around an _EfficientNetB3_ model trained on _ILSVRC_ dataset,
+It wraps around an _EfficientNetB3-NoisyStudent_ model trained for _ILSVRC_ dataset,
 exposing its functionality through a simple endpoint. The API was built using
 _FastAPI_ python framework. It utilizes _Tensorflow_ for executing deep 
 learning models.  
